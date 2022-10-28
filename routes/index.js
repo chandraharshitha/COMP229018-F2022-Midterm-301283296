@@ -3,6 +3,14 @@ var router = express.Router();
 let controlerIndex = require('../controllers/index');
 
 /* GET home page. */
-router.get('/', controlerIndex.home);
+function requireAuth(req, res, next){
+    if(req.isAuthenticated()){
+        //req.isAuthenticated() will return true if user is logged in
+        next();
+    } else{
+        res.redirect("/users/signin");
+    }
+}
+router.get('/',requireAuth, controlerIndex.home);
 
 module.exports = router;
