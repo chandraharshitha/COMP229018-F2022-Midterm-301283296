@@ -1,0 +1,12 @@
+// MongoDB Playground
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// The current database to use.
+use('test');
+
+db.todo.insertOne({
+  task:"reading ",
+  description:"liviing a significant life",
+  complete: "false",
+  actions: "read"
+})
